@@ -2,42 +2,44 @@
 title: Introduction to computational methods to quantify tumor heterogeneity
 date: October 7, 2019
 author: "Jane Merlevede"
-output: 
-  prettydoc::html_pretty:
-    theme: cayman
-    highlight: github
+output:                    # DO NOT CHANGE
+  prettydoc::html_pretty:  # DO NOT CHANGE
+    theme: cayman          # DO NOT CHANGE
+    highlight: github      # DO NOT CHANGE
+editor_options: 
+  chunk_output_type: console
 ---
 
-## Quotes
+## Statistical methods for deconvolution
 
-> I love R and I like writing articles with R Markdown.
+The widely used methods in matrix factorization are Principal Component Analysis (PCA), Non Negative Matrix Factorization (NMF) and Independent Component Analysis (ICA). Let us give some key aspects on these methods for solving the optimization problem min $||D-T*A||^2$.
 
-## Lists
 
-This is a bullet list:
+### Principal Component Analysis (PCA)
+PCA (Pearson, K, 1901) solves a Singular Value Decomposition: D=UWVT where W is a rectangular diagonal matrix of positive numbers, U and V are squared orthogonal matrices. The constraints here are on the structure of the matrices used in the factorization, which will result in orthogonal components.
+PCA aims at detecting the correlation between variables and then reduces the dimensionality. By finding components that explain most of the variation in the data, PCA can be limited in the presence of high technical artifacts.
 
-- item 1,
-- item 2.
+### Non Negative Matrix Factorization (NMF)
+In NMF (Paatero, P et al, 1994), the constraints are that the elements of both T and A matrices must be non-negative. It is considered as a natural approximation in different cases as it represents the non-negative nature of most omics data.
 
-This is an ordered list:
+### Independent Component Analysis (ICA)
+The constraint in ICA (Herault and Jutten, 1982), also called Blind Source Separation, is statistical independence between columns of A. The multivariate signal is decomposed into components, with non-Gaussian distributions, that are as independent as possible. The resulting components should minimize statistical dependence, in the aim of identifying distinct biological processes. The constraints of statistical independence is equivalent to maximizing non-gaussianity of data point projections onto the components.
+The idea is to use higher-order moments for matrix approximation, while considering all Gaussian signals as noise (Comon, P, 1994).
 
-1. item 3,
-2. item 4.
+> Several studies have compared these methods in the context of this problematic (Zinovyev, A et al, 2013 and Cantini, L et al, 2019).
 
-## Equations
+## How to use omic-data for deconvolution?
 
-This is an inline equation with an inline R code chunk: $\pi = `r pi`$.
+For the main data types on which deconvolution can be applied, let us mention some of the tools that can be used.
 
-This is the Gaussian integral equation: $$\int_{-\infty}^{+\infty} e^{-x^2}~dx = \sqrt{\pi}.$$
+### Methylation levels
 
-## Plots
+The three methods used in  the *Health data challenge (1st edition)** were based on NMF (RefFreeEWAS: Houseman, EA et al, 2014 - EDEc: Onuchic, V et al, 2016 - MeDeCom: Lutsik, P et al, P, 2017). Reference-Free Adjustment for Cell-Type composition (ReFACTor) (Rahmani, E et al, 2016) is an unsupervised method for the correction of cell-type heterogeneity based on PCA. There are also other methods, like the one proposed by Liang, C et al, (bioRxiv) 2019 where the authors used a hybrid method of stability selection and elastic net.
+The advantage of methylation data in this type of problem is that it is one of the most reproducible among molecular experiments, which allows easier integration of different datasets.
 
-```{r, fig.align='center', fig.cap="This is a nice plot."}
-curve(exp(-x^2), -2.5, 2.5)
-```
+### Gene expression
+Most of the recent tools proposed to identify immune and stromal cell populations are supervised methods like CIBERSORT (Newman, A et al, 2015) or MCPCounter (Becht, E et al, 2016). They are not matrix factorization methods. The use of unsupervised tools for the identification of cell populations in gene expression seems quite limited until now. Few NMF-based methods have been developed (Brunet, J-P et al, 2004, Repsilber, D et al, 2010, Moffitt, R et al 2015, Gaujoux R, Seoighe C, 2012 (semi-supervised approach), Liu, Y et al, 2017). There are also few tools based on ICA: BIODICA (Kairov, U et al, 2017), DeconICA (https://github.com/UrszulaCzerwinska/DeconICA).
 
-## Images
+### Mutational signatures
+Most of the methods developed so far for mutational signature extraction are based on NMF as described in this review (Baez-Ortega A, 2019). The most well-known method, which rely on NMF, was published in Alexandrov, L et al, 2013 and was reused in several publications, including Alexandrov, L et al, 2018.
 
-- An image from Barry Clark's GitHub account:
-
-![Jekyll Now is the base of this template](https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png)
