@@ -10,13 +10,15 @@ editor_options:
   chunk_output_type: console
 ---
 
+> Author: Jane Merlevede
+
 ## Statistical methods for deconvolution
 
 The widely used methods in matrix factorization are Principal Component Analysis (PCA), Non Negative Matrix Factorization (NMF) and Independent Component Analysis (ICA). Let us give some key aspects on these methods for solving the optimization problem min $||D-T*A||^2$.
 
 
 ### Principal Component Analysis (PCA)
-PCA (Pearson, K, 1901) solves a Singular Value Decomposition: D=UWVT where W is a rectangular diagonal matrix of positive numbers, U and V are squared orthogonal matrices. The constraints here are on the structure of the matrices used in the factorization, which will result in orthogonal components.
+PCA (Pearson, K, 1901) solves a Singular Value Decomposition: $D=UWVT$ where $W$ is a rectangular diagonal matrix of positive numbers, $U$ and $V$ are squared orthogonal matrices. The constraints here are on the structure of the matrices used in the factorization, which will result in orthogonal components.
 PCA aims at detecting the correlation between variables and then reduces the dimensionality. By finding components that explain most of the variation in the data, PCA can be limited in the presence of high technical artifacts.
 
 ### Non Negative Matrix Factorization (NMF)
@@ -34,7 +36,7 @@ For the main data types on which deconvolution can be applied, let us mention so
 
 ### Methylation levels
 
-The three methods used in  the *Health data challenge (1st edition)** were based on NMF (RefFreeEWAS: Houseman, EA et al, 2014 - EDEc: Onuchic, V et al, 2016 - MeDeCom: Lutsik, P et al, P, 2017). Reference-Free Adjustment for Cell-Type composition (ReFACTor) (Rahmani, E et al, 2016) is an unsupervised method for the correction of cell-type heterogeneity based on PCA. There are also other methods, like the one proposed by Liang, C et al, (bioRxiv) 2019 where the authors used a hybrid method of stability selection and elastic net.
+The three methods used in  the **Health data challenge (1st edition)** were based on NMF (RefFreeEWAS: Houseman, EA et al, 2014 - EDEc: Onuchic, V et al, 2016 - MeDeCom: Lutsik, P et al, P, 2017). Reference-Free Adjustment for Cell-Type composition (ReFACTor) (Rahmani, E et al, 2016) is an unsupervised method for the correction of cell-type heterogeneity based on PCA. There are also other methods, like the one proposed by Liang, C et al, (bioRxiv) 2019 where the authors used a hybrid method of stability selection and elastic net.
 The advantage of methylation data in this type of problem is that it is one of the most reproducible among molecular experiments, which allows easier integration of different datasets.
 
 ### Gene expression
