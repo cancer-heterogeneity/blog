@@ -1,6 +1,7 @@
 ---
 title: Introduction to computational methods to quantify tumor heterogeneity
 date: October 7, 2019
+author: "Jane Merlevede"
 output: 
   prettydoc::html_pretty:
     theme: cayman
