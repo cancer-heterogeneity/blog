@@ -10,6 +10,8 @@ editor_options:
   chunk_output_type: console
 ---
 
+> Author: Jane Merlevede
+
 ## Context
 
 Deconvolution consists in solving the matrix factorization problem $D=T*A$, including determining the dimensions of T and A matrices. The number of cell types is closely related to K, the number of columns in T and the numbers of rows in A: the number of cell types is at most K. In the ideal case where one captures only cell population signals, the number of cell types is exactly K. 

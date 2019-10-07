@@ -10,6 +10,8 @@ editor_options:
   chunk_output_type: console
 ---
 
+> Author: Jane Merlevede
+
 ## Statistical methods for deconvolution
 
 The widely used methods in matrix factorization are Principal Component Analysis (PCA), Non Negative Matrix Factorization (NMF) and Independent Component Analysis (ICA). Let us give some key aspects on these methods for solving the optimization problem min $||D-T*A||^2$.

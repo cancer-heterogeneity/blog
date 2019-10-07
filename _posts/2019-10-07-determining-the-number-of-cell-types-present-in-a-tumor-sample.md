@@ -8,6 +8,9 @@ layout: post
 
 
 <section class="main-content">
+<blockquote>
+<p>Author: Jane Merlevede</p>
+</blockquote>
 <div id="context" class="section level2">
 <h2>Context</h2>
 <p>Deconvolution consists in solving the matrix factorization problem <span class="math inline">\(D=T*A\)</span>, including determining the dimensions of T and A matrices. The number of cell types is closely related to K, the number of columns in T and the numbers of rows in A: the number of cell types is at most K. In the ideal case where one captures only cell population signals, the number of cell types is exactly K.</p>
