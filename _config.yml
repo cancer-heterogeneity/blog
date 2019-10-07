@@ -36,7 +36,11 @@ footer-links:
   instagram:
   linkedin:
   pinterest:
+<<<<<<< HEAD
   rss: rss #just type anything here for a working RSS icon
+=======
+  rss:  #just type anything here for a working RSS icon
+>>>>>>> 7b945ff97c33775b389ab633b2874ff9a1e84279
   twitter: 
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
